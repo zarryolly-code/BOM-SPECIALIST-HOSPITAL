@@ -431,7 +431,7 @@ function App() {
   };
 
   try {
-    const response = await fetch("/api/appointments/", {
+    const response = await fetch("https://bom-specialist-hospital.onrender.com/api/appointments/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

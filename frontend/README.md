@@ -1,16 +1,63 @@
-# React + Vite
+# B.O.M Specialist Hospital Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for **B.O.M Specialist Hospital**, built to provide patients with easy access to hospital information and appointment requests.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Hospital information and services
+* Doctors section
+* Online appointment request form
+* WhatsApp contact
+* X (Twitter) social-media link
+* Responsive design for desktop and mobile
+* Django backend for appointment management
+* Django Admin for managing appointments
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+* React
+* Vite
+* HTML
+* CSS
+* JavaScript
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+* Python
+* Django
+* SQLite (development)
+
+## Project Structure
+
+```text
+BOM-SPECIALIST-HOSPITAL/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   └── package.json
+│
+└── backend/
+    ├── appointments/
+    ├── config/
+    ├── manage.py
+    ├── requirements.txt
+    └── Procfile
+```
+
+## Live Backend
+
+https://bom-specialist-hospital.onrender.com
+
+## Contact
+
+**B.O.M Specialist Hospital**
+
+WhatsApp: +234 915 569 7556
+
+X: @BOMspecialist1
+
+---
+
+© 2026 B.O.M Specialist Hospital. All rights reserved.
