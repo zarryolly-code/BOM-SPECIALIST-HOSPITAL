@@ -26,9 +26,10 @@ def create_appointment(request):
             message=data.get("message", "")
         )
 
-        send_mail(
-    subject="New Appointment Booking - B.O.M Specialist Hospital",
-    message=f"""
+        try:
+            send_mail(
+                subject="New Appointment Booking - B.O.M Specialist Hospital",
+                message=f"""
 A new appointment has been booked.
 
 Patient Name: {appointment.name}
@@ -39,10 +40,12 @@ Message: {appointment.message}
 
 Please contact the patient to confirm the appointment.
 """,
-    from_email=None,
-    recipient_list=["riyadsolihn@gmail.com"],
-    fail_silently=True,
-)
+                from_email=None,
+                recipient_list=["riyadsolihn@gmail.com"],
+                fail_silently=True,
+            )
+        except Exception:
+            pass
 
         return JsonResponse(
             {
