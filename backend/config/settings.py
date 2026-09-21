@@ -139,3 +139,5 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5177",
     "https://bom-specialist-hospital-1.onrender.com",
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
