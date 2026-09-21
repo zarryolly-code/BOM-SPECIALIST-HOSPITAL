@@ -26,27 +26,6 @@ def create_appointment(request):
             message=data.get("message", "")
         )
 
-        try:
-            send_mail(
-                subject="New Appointment Booking - B.O.M Specialist Hospital",
-                message=f"""
-A new appointment has been booked.
-
-Patient Name: {appointment.name}
-Phone: {appointment.phone}
-Service: {appointment.service}
-Preferred Date: {appointment.preferred_date}
-Message: {appointment.message}
-
-Please contact the patient to confirm the appointment.
-""",
-                from_email=None,
-                recipient_list=["riyadsolihn@gmail.com"],
-                fail_silently=True,
-            )
-        except Exception:
-            pass
-
         return JsonResponse(
             {
                 "message": "Appointment request received successfully.",
