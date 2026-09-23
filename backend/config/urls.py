@@ -16,8 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from appointments.views import google_auth, oauth2callback
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('appointments.urls')),
+    path("google-auth/", google_auth),
+    path("oauth2callback/", oauth2callback),
 ]

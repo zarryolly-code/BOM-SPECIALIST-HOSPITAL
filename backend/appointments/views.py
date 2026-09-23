@@ -2,6 +2,9 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.core.mail import send_mail
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from .gmail_service import create_google_flow
 
 from .models import Appointment
 
@@ -39,3 +42,32 @@ def create_appointment(request):
             {"error": "Unable to create appointment."},
             status=400
         )
+
+    def google_auth(request):
+    flow = create_google_flow()
+
+    authorization_url, state = flow.authorization_url(
+        access_type="offline",
+        prompt="consent",
+    )
+
+    request.session["google_oauth_state"] = state
+
+    return redirect(authorization_url)
+
+
+def oauth2callback(request):
+    flow = create_google_flow()
+
+    flow.fetch_token(
+        authorization_response=request.build_absolute_uri()
+    )
+
+    credentials = flow.credentials
+
+    with open("token.json", "w") as token:
+        token.write(credentials.to_json())
+
+    return HttpResponse(
+        "Gmail authorization successful! You can now send appointment emails."
+    )
