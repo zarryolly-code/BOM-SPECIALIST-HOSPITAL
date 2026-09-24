@@ -465,7 +465,8 @@ function App() {
 
                 <p>
                   Healthcare supported by modern medical facilities and
-                  equipment.
+                  equipment, and Electronic Medical Records (EMR) for
+                  efficient and coordinated service.
                 </p>
 
               </div>
