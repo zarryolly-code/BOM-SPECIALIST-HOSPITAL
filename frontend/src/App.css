@@ -57,8 +57,8 @@ a {
 }
 
 .hospital-logo {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
 }
 
@@ -115,7 +115,7 @@ a {
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0.45)
     ),
-    url("./assets/bom-front-building.jpg") center/cover no-repeat;
+    url("./assets/bom-front-building.jpeg") center/cover no-repeat;
 
   padding: 110px 0 90px;
   color: #ffffff;

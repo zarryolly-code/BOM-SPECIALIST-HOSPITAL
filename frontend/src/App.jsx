@@ -1,6 +1,6 @@
 import "./App.css";
 import bomLogo from "./assets/bom-logo.jpeg";
-import bomFrontBuilding from "./assets/bom-front-building.jpg";
+import bomFrontBuilding from "./assets/bom-front-building.jpeg";
 import bomReception from "./assets/bom-reception.jpeg";
 import bomTheatre from "./assets/bom-theatre.jpeg";
 import bomWards from "./assets/bom-wards.jpeg";
