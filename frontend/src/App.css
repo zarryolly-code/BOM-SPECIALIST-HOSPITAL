@@ -779,14 +779,18 @@ a {
 
   .nav-container {
     flex-direction: column;
-    padding: 15px 0;
+    padding: 0;
+    gap: 0;
   }
 
   .brand {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
+  width: 100%;
+  justify-content: center;
+  text-align: left;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
 
   .hospital-logo {
     width: 85px;
@@ -889,8 +893,9 @@ a {
 @media (max-width: 480px) {
 
   .brand {
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
   }
 
   .hospital-logo {
@@ -899,7 +904,7 @@ a {
   }
 
   .nav {
-    gap: 8px 12px;
+    gap: 6px 10px;
   }
 
   .hero h2 {
