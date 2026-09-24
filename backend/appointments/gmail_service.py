@@ -1,5 +1,8 @@
 import base64
 import os
+
+import resend
+
 from email.mime.text import MIMEText
 
 from google.auth.transport.requests import Request
@@ -10,8 +13,10 @@ from googleapiclient.discovery import build
 
 SCOPES = ["https://www.googleapis.com/auth/gmail.send"]
 
+REDIRECT_URI = "http://127.0.0.1:8000/oauth2callback/"
 
-def create_google_flow():
+
+def create_google_flow(code_verifier=None, state=None):
     client_config = {
         "web": {
             "client_id": os.getenv("GOOGLE_CLIENT_ID"),
@@ -19,7 +24,7 @@ def create_google_flow():
             "auth_uri": "https://accounts.google.com/o/oauth2/auth",
             "token_uri": "https://oauth2.googleapis.com/token",
             "redirect_uris": [
-                "http://127.0.0.1:8000/oauth2callback/"
+                REDIRECT_URI
             ],
         }
     }
@@ -27,7 +32,9 @@ def create_google_flow():
     return Flow.from_client_config(
         client_config,
         scopes=SCOPES,
-        redirect_uri="http://127.0.0.1:8000/oauth2callback/",
+        redirect_uri=REDIRECT_URI,
+        code_verifier=code_verifier,
+        state=state,
     )
 
 
@@ -50,24 +57,13 @@ def get_gmail_service():
 
 
 def send_email(to_email, subject, body):
-    service = get_gmail_service()
+    resend.api_key = os.getenv("RESEND_API_KEY")
 
-    if not service:
-        raise Exception("Gmail is not authorized yet.")
-
-    message = MIMEText(body)
-    message["to"] = to_email
-    message["subject"] = subject
-
-    encoded_message = base64.urlsafe_b64encode(
-        message.as_bytes()
-    ).decode()
-
-    message_body = {
-        "raw": encoded_message
+    params = {
+        "from": "B.O.M Specialist Hospital <appointments@bomspecialisthospital.com.ng>",
+        "to": [to_email],
+        "subject": subject,
+        "text": body,
     }
 
-    return service.users().messages().send(
-        userId="me",
-        body=message_body,
-    ).execute()
+    return resend.Emails.send(params)

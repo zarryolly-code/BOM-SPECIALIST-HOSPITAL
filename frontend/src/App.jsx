@@ -1,5 +1,12 @@
 import "./App.css";
 import bomLogo from "./assets/bom-logo.jpeg";
+import bomFrontBuilding from "./assets/bom-front-building.jpg";
+import bomReception from "./assets/bom-reception.jpeg";
+import bomTheatre from "./assets/bom-theatre.jpeg";
+import bomWards from "./assets/bom-wards.jpeg";
+import bomLaboratory from "./assets/bom-laboratory.jpeg";
+import bomLabourRoom from "./assets/bom-labour-room.jpeg";
+import bomNurseStation from "./assets/bom-nurse-station.jpeg";
 
 function Service({ icon, title }) {
   return (
@@ -9,6 +16,23 @@ function Service({ icon, title }) {
       <p>
         Professional healthcare delivered with care and excellence.
       </p>
+    </article>
+  );
+}
+
+function FacilityCard({ image, title, description }) {
+  return (
+    <article className="facility-card">
+      <img
+        src={image}
+        alt={`B.O.M Specialist Hospital ${title}`}
+        className="facility-image"
+      />
+
+      <div className="facility-content">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </article>
   );
 }
@@ -23,10 +47,11 @@ function App() {
 
           <div className="brand">
             <img
-  src={bomLogo}
-  alt="B.O.M Specialist Hospital Logo"
-  className="hospital-logo"
-/>
+              src={bomLogo}
+              alt="B.O.M Specialist Hospital Logo"
+              className="hospital-logo"
+            />
+
             <div>
               <h1>B.O.M SPECIALIST HOSPITAL</h1>
               <span>CARE. COMPASSION. EXCELLENCE.</span>
@@ -134,7 +159,15 @@ function App() {
 
           <div className="container about-grid">
 
-            <div>
+            <div className="about-image-wrap">
+              <img
+                src={bomReception}
+                alt="B.O.M Specialist Hospital Reception"
+                className="about-image"
+              />
+            </div>
+
+            <div className="about-content">
 
               <p className="section-label">
                 ABOUT B.O.M
@@ -143,11 +176,6 @@ function App() {
               <h2>
                 Healthcare built around you.
               </h2>
-
-            </div>
-
-
-            <div>
 
               <p>
                 B.O.M Specialist Hospital is committed to providing quality
@@ -160,6 +188,10 @@ function App() {
                 medical services and surgery, our goal is to put patients and
                 their wellbeing first.
               </p>
+
+              <a href="#contact" className="text-link">
+                Contact us →
+              </a>
 
             </div>
 
@@ -235,75 +267,141 @@ function App() {
 
             </div>
 
+
+            {/* FACILITIES */}
+            <div className="facilities-heading">
+
+              <p className="section-label">
+                OUR FACILITIES
+              </p>
+
+              <h2>
+                Facilities designed for quality care
+              </h2>
+
+              <p>
+                Explore some of the facilities available at B.O.M Specialist
+                Hospital, designed to support safe, professional and
+                compassionate patient care.
+              </p>
+
+            </div>
+
+
+            <div className="facilities-grid">
+
+              <FacilityCard
+                image={bomTheatre}
+                title="Theatre"
+                description="A professional surgical environment supporting safe and effective medical procedures."
+              />
+
+              <FacilityCard
+                image={bomWards}
+                title="Wards"
+                description="Comfortable patient care spaces designed to support recovery and wellbeing."
+              />
+
+              <FacilityCard
+                image={bomLaboratory}
+                title="Laboratory"
+                description="Laboratory services supporting accurate and timely medical investigations."
+              />
+
+              <FacilityCard
+                image={bomLabourRoom}
+                title="Labour Room"
+                description="A dedicated environment supporting mothers and babies through childbirth."
+              />
+
+              <FacilityCard
+                image={bomNurseStation}
+                title="Nurse Station"
+                description="A central point for coordinated nursing care and patient support."
+              />
+
+            </div>
+
           </div>
 
         </section>
 
+
         {/* DOCTORS */}
-<section className="doctors section" id="doctors">
+        <section className="doctors section" id="doctors">
 
-  <div className="container">
+          <div className="container">
 
-    <div className="section-heading">
+            <div className="section-heading">
 
-      <p className="section-label">
-        OUR MEDICAL TEAM
-      </p>
+              <p className="section-label">
+                OUR MEDICAL TEAM
+              </p>
 
-      <h2>
-        Experienced care, close to you.
-      </h2>
+              <h2>
+                Experienced care, close to you.
+              </h2>
 
-      <p>
-        Our dedicated medical professionals are committed to providing
-        safe, compassionate and quality healthcare.
-      </p>
+              <p>
+                Our dedicated medical professionals are committed to providing
+                safe, compassionate and quality healthcare.
+              </p>
 
-    </div>
+            </div>
 
-    <div className="doctors-grid">
 
-      <article className="doctor-card">
-        <div className="doctor-photo">
-          DR
-        </div>
+            <div className="doctors-grid">
 
-        <h3>Medical Director</h3>
+              <article className="doctor-card">
 
-        <p>
-          Medical Director
-        </p>
-      </article>
+                <div className="doctor-photo">
+                  DR
+                </div>
 
-      <article className="doctor-card">
-        <div className="doctor-photo">
-          MD
-        </div>
+                <h3>Medical Director</h3>
 
-        <h3>Medical Officer</h3>
+                <p>
+                  Medical Director
+                </p>
 
-        <p>
-          Medical Officer
-        </p>
-      </article>
+              </article>
 
-      <article className="doctor-card">
-        <div className="doctor-photo">
-          NS
-        </div>
 
-        <h3>Nursing Team</h3>
+              <article className="doctor-card">
 
-        <p>
-          Professional Nursing Care
-        </p>
-      </article>
+                <div className="doctor-photo">
+                  MD
+                </div>
 
-    </div>
+                <h3>Medical Officer</h3>
 
-  </div>
+                <p>
+                  Medical Officer
+                </p>
 
-</section>
+              </article>
+
+
+              <article className="doctor-card">
+
+                <div className="doctor-photo">
+                  NS
+                </div>
+
+                <h3>Nursing Team</h3>
+
+                <p>
+                  Professional Nursing Care
+                </p>
+
+              </article>
+
+            </div>
+
+          </div>
+
+        </section>
+
 
         {/* WHY CHOOSE US */}
         <section className="why-us section">
@@ -393,293 +491,455 @@ function App() {
 
         </section>
 
+
         {/* APPOINTMENT */}
-<section
-  className="appointment section"
-  id="appointment"
->
-  <div className="container">
+        <section
+          className="appointment section"
+          id="appointment"
+        >
 
-    <div className="section-heading">
-      <p className="section-label">
-        NEED MEDICAL CARE?
-      </p>
+          <div className="container">
 
-      <h2>
-        Book an appointment with us.
-      </h2>
+            <div className="section-heading">
 
-      <p>
-        Fill in your details and our team will contact you to confirm
-        your appointment.
-      </p>
-    </div>
+              <p className="section-label">
+                NEED MEDICAL CARE?
+              </p>
 
-    <form 
-    className="appointment-form"
-     onSubmit={async (e) => {
-  e.preventDefault();
+              <h2>
+                Book an appointment with us.
+              </h2>
 
-  const form = e.target;
+              <p>
+                Fill in your details and our team will contact you to confirm
+                your appointment.
+              </p>
 
-  const appointmentData = {
-    name: form.name.value,
-    phone: form.phone.value,
-    service: form.service.value,
-    preferred_date: form.date.value,
-    message: form.message.value,
-  };
+            </div>
 
-  try {
-    const response = await fetch("https://bom-specialist-hospital.onrender.com/api/appointments/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(appointmentData),
-    });
 
-    if (response.ok) {
-      alert("Your appointment request has been received. Our team will contact you shortly.");
-      form.reset();
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
-  } catch (error) {
-    alert("Connection error: " + error.message);
-  }
-}}
-    >
+            <form
+              className="appointment-form"
+              onSubmit={async (e) => {
 
-      <div className="form-row">
+                e.preventDefault();
 
-        <div className="form-group">
-          <label htmlFor="name">Full Name</label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter your full name" required
-          />
-        </div>
+                const form = e.target;
 
-        <div className="form-group">
-          <label htmlFor="phone">Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Enter your phone number" required pattern="[+]?[0-9\s()-]{7,20}"
-          />
-        </div>
+                const appointmentData = {
+                  name: form.name.value,
+                  phone: form.phone.value,
+                  service: form.service.value,
+                  preferred_date: form.date.value,
+                  message: form.message.value,
+                };
 
-      </div>
+                try {
 
-      <div className="form-row">
+                  const response = await fetch(
+                    "https://bom-specialist-hospital.onrender.com/api/appointments/",
+                    {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(appointmentData),
+                    }
+                  );
 
-        <div className="form-group">
-          <label htmlFor="service">Select Service</label>
+                  if (response.ok) {
 
-          <select id="service" required>
-            <option value="">Choose a service</option>
-            <option>Medical Emergency Services</option>
-            <option>Obstetrics & Gynaecology</option>
-            <option>Immunization</option>
-            <option>Family Planning</option>
-            <option>Paediatric Services</option>
-            <option>Ear, Nose & Throat (ENT)</option>
-            <option>Laboratory Services</option>
-            <option>General Surgery</option>
-            <option>Other</option>
-          </select>
-        </div>
+                    alert(
+                      "Your appointment request has been received. Our team will contact you shortly."
+                    );
 
-        <div className="form-group">
-          <label htmlFor="date">Preferred Date</label>
+                    form.reset();
 
-          <input
-            type="date"
-            id="date" required min={new Date().toISOString().split("T")[0]}
-          />
-        </div>
+                  } else {
 
-      </div>
+                    alert(
+                      "Something went wrong. Please try again."
+                    );
 
-      <div className="form-group">
-        <label htmlFor="message">Additional Message</label>
+                  }
 
-        <textarea
-          id="message"
-          rows="5"
-          placeholder="Tell us anything we should know..." required
-        ></textarea>
-      </div>
+                } catch (error) {
 
-      <button
-        type="submit"
-        className="primary-btn"
-      >
-        Request Appointment
-      </button>
+                  alert(
+                    "Connection error: " + error.message
+                  );
 
-    </form>
+                }
 
-  </div>
-</section>
-        
+              }}
+            >
+
+              <div className="form-row">
+
+                <div className="form-group">
+
+                  <label htmlFor="name">
+                    Full Name
+                  </label>
+
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                  />
+
+                </div>
+
+
+                <div className="form-group">
+
+                  <label htmlFor="phone">
+                    Phone Number
+                  </label>
+
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    required
+                    pattern="[+]?[0-9\s()-]{7,20}"
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div className="form-row">
+
+                <div className="form-group">
+
+                  <label htmlFor="service">
+                    Select Service
+                  </label>
+
+                  <select
+                    id="service"
+                    name="service"
+                    required
+                  >
+
+                    <option value="">
+                      Choose a service
+                    </option>
+
+                    <option>
+                      Medical Emergency Services
+                    </option>
+
+                    <option>
+                      Obstetrics & Gynaecology
+                    </option>
+
+                    <option>
+                      Immunization
+                    </option>
+
+                    <option>
+                      Family Planning
+                    </option>
+
+                    <option>
+                      Paediatric Services
+                    </option>
+
+                    <option>
+                      Ear, Nose & Throat (ENT)
+                    </option>
+
+                    <option>
+                      Laboratory Services
+                    </option>
+
+                    <option>
+                      General Surgery
+                    </option>
+
+                    <option>
+                      Other
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div className="form-group">
+
+                  <label htmlFor="date">
+                    Preferred Date
+                  </label>
+
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                    min={new Date().toISOString().split("T")[0]}
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div className="form-group">
+
+                <label htmlFor="message">
+                  Additional Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us anything we should know..."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <button
+                type="submit"
+                className="primary-btn"
+              >
+                Request Appointment
+              </button>
+
+            </form>
+
+          </div>
+
+        </section>
+
+
         {/* CONTACT */}
-<section className="contact section" id="contact">
-  <div className="container contact-grid">
+        <section
+          className="contact section"
+          id="contact"
+        >
 
-    <div>
-      <p className="section-label">
-        CONTACT US
-      </p>
+          <div className="container contact-grid">
 
-      <h2>
-        We're here for you.
-      </h2>
+            <div className="contact-intro">
 
-      <p>
-        Visit B.O.M Specialist Hospital or contact our team for more
-        information about our services.
-      </p>
-    </div>
+              <p className="section-label">
+                CONTACT US
+              </p>
 
-    <div className="contact-details">
+              <h2>
+                We're here for you.
+              </h2>
 
-      <div>
-        <strong>
-          📍 Address
-        </strong>
+              <p>
+                Visit B.O.M Specialist Hospital or contact our team for more
+                information about our services.
+              </p>
 
-        <p>
-          No. 2 Akinlolu Street,
-          <br />
-          Behind Damini Plaza,
-          <br />
-          Abiola Way, off Ring Road,
-          <br />
-          Ibadan, Oyo State.
-        </p>
-      </div>
+            </div>
 
-      <div>
-        <strong>
-          📞 Medical Director
-        </strong>
 
-        <p>
-          <a href="tel:+2347037377343">
-            0703 737 7343
-          </a>
-        </p>
-      </div>
+            <div className="contact-details">
 
-      <div>
-        <strong>
-          🏢 Admin Office
-        </strong>
+              <div>
 
-        <p>
-          <a href="tel:+2348039273661">
-            0803 927 3661
-          </a>
-        </p>
-      </div>
+                <strong>
+                  📍 Address
+                </strong>
 
-      <div>
-        <strong>
-          💬 WhatsApp
-        </strong>
+                <p>
+                  No. 2 Akinlolu Street,
+                  <br />
+                  Behind Damin Plaza,
+                  <br />
+                  Abiola Way, off Ring Road,
+                  <br />
+                  Ibadan, Oyo State.
+                </p>
 
-        <p>
-          <a
-            href="https://wa.me/2349155697556"
-            target="_blank"
-            rel="noreferrer"
-          >
-            +234 915 569 7556
-          </a>
-        </p>
-      </div>
+              </div>
 
-      <div>
-        <strong>
-          ✉️ Email
-        </strong>
 
-        <p>
-          <a href="mailto:riyadsolihn@gmail.com">
-            riyadsolihn@gmail.com
-          </a>
-        </p>
-      </div>
+              <div>
 
-      <div>
-        <strong>
-          🕐 Availability
-        </strong>
+                <strong>
+                  📞 Medical Director
+                </strong>
 
-        <p>
-          24 Hours — Expert Healthcare
-        </p>
-      </div>
+                <p>
+                  <a href="tel:+2347037377343">
+                    0703 737 7343
+                  </a>
+                </p>
 
-    </div>
+              </div>
 
-  </div>
-</section>
+
+              <div>
+
+                <strong>
+                  🏢 Admin Office
+                </strong>
+
+                <p>
+                  <a href="tel:+2348039273661">
+                    0803 927 3661
+                  </a>
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  💬 WhatsApp
+                </strong>
+
+                <p>
+
+                  <a
+                    href="https://wa.me/2349155697556"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    +234 915 569 7556
+                  </a>
+
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  ✉️ Email
+                </strong>
+
+                <p>
+
+                  <a href="mailto:riyadsolihn@gmail.com">
+                    riyadsolihn@gmail.com
+                  </a>
+
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <strong>
+                  🕐 Availability
+                </strong>
+
+                <p>
+                  24 Hours — Expert Healthcare
+                </p>
+
+              </div>
+
+            </div>
+
+
+            {/* GOOGLE MAP */}
+            <div className="contact-map">
+
+              <iframe
+                title="B.O.M Specialist Hospital Location"
+                src="https://www.google.com/maps?q=7.3526107,3.8745764&z=17&output=embed"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+
+              <a
+                href="https://maps.app.goo.gl/xP4XtzhXs1yTPWEx9"
+                target="_blank"
+                rel="noreferrer"
+                className="map-button"
+              >
+                📍 Get Directions
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
 
       </main>
 
-<a
-  href="https://wa.me/2349155697556"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="whatsapp-float"
-  aria-label="Chat with B.O.M Specialist Hospital on WhatsApp"
->
-  <svg
-  viewBox="0 0 32 32"
-  width="28"
-  height="28"
-  fill="white"
->
-  <path d="M19.11 17.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
-</svg>
-</a>
 
-{/* FOOTER */}
-<footer className="footer">
+      {/* WHATSAPP FLOAT */}
+      <a
+        href="https://wa.me/2349155697556"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="Chat with B.O.M Specialist Hospital on WhatsApp"
+      >
 
-  <div className="container footer-content">
+        <svg
+          viewBox="0 0 32 32"
+          width="28"
+          height="28"
+          fill="white"
+        >
 
-    <div>
-      <strong>
-        B.O.M SPECIALIST HOSPITAL
-      </strong>
+          <path d="M19.11 17.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
 
-      <p>
-        Care. Compassion. Excellence.
-      </p>
-    </div>
+        </svg>
 
-    <a
-      href="https://x.com/BOMspecialist1"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="social-link"
-      aria-label="B.O.M Specialist Hospital on X"
-    >
-      𝕏
-    </a>
+      </a>
 
-    <p>
-      © {new Date().getFullYear()} B.O.M Specialist Hospital.
-    </p>
 
-  </div>
+      {/* FOOTER */}
+      <footer className="footer">
 
-</footer>
+        <div className="container footer-content">
+
+          <div>
+
+            <strong>
+              B.O.M SPECIALIST HOSPITAL
+            </strong>
+
+            <p>
+              Care. Compassion. Excellence.
+            </p>
+
+          </div>
+
+
+          <a
+            href="https://x.com/BOMspecialist1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+            aria-label="B.O.M Specialist Hospital on X"
+          >
+            𝕏
+          </a>
+
+
+          <p>
+            © {new Date().getFullYear()} B.O.M Specialist Hospital.
+          </p>
+
+        </div>
+
+      </footer>
 
     </div>
   );
